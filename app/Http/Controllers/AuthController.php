@@ -56,6 +56,6 @@ class AuthController extends Controller
 
         FormData::create($validate);
 
-        return redirect()->route('welcome');
+        return redirect()->route('signIn');
     }
 }
