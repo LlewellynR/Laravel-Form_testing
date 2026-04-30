@@ -9,3 +9,28 @@
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
 }
+*{
+    font-family: 'Nunito',sans-serif !important;
+}
+#nav{
+ background: linear-gradient(to right, #0B1F3A, #0A1A2F)
+}
+#sign-in{
+    color: white;
+    font-family:sans-serif;
+    background-color: red;
+}
+#logo{
+    color: white;
+}
+.links{
+    text-decoration: none;
+    color: #8d8888 !important;
+    transition: 200ms;
+}
+.links:hover{
+    color:white !important;
+}
+
+
+
