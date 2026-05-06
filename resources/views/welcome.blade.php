@@ -1,5 +1,5 @@
 <x-nav>
-    <div class="d-flex  image border-5  m-auto flexy card w-50">
+    <div class="d-flex  image border-5  m-auto flexy card w-25">
         <div class="d-flex border-end card-body">
             <img src="{{asset("images/Cat.svg")}}" alt="origami cat" class="card-img">
         </div>
