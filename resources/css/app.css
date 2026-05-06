@@ -31,6 +31,23 @@
 .links:hover{
     color:white !important;
 }
+.image{
+    transition: 2s;
+    animation: fade-in 2s;
+}
+@keyframes fade-in {
+    from{
+        opacity: 0;
+        transform: translateX(-200px) translateY(200px);
+    } to{
+    opacity: 1;
+    transform: translateX(0px) translateY(0px);
 
-
+          }
+}
+.flexy{
+    border-image-slice: 1 !important;
+    margin-top: 100px !important;
+    border-image-source: linear-gradient(to right, #0B1F3A, #0A1A2F) !important;
+}
 
