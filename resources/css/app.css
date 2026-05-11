@@ -56,3 +56,21 @@ h5{
 .welcome{
     margin: 30vh !important;
 }
+#intro{
+    animation: appear 2s;
+}
+#intro-text{
+    animation:appear 5s;
+}
+.welcome>a{
+    animation: appear 5s;
+}
+
+/* Definitely not the most efficient keyframe */
+@keyframes appear {
+    from{
+        opacity: 0;
+    }to{
+    opacity: 1;
+         }
+}
