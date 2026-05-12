@@ -24,6 +24,10 @@ Route::get('Galleries',function (){
     return view('Galleries');
 })->name("Galleries");
 
+Route::get('Contact',function (){
+    return view('Contact');
+})->name("Contact");
+
 Route::post('signUp', [AuthController::class, 'signUp'])->name('signUp.signUp');
 Route::post('/', [AuthController::class, 'logout'])->name('logout');
 Route::post('signIn', [AuthController::class, 'login'])->name('signIn.signIn');
