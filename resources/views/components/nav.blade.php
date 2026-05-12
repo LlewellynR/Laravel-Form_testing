@@ -29,7 +29,7 @@
     @else
         <div class="flex gap-4">
             <a class="links" href="{{route('welcome')}}">Home</a>
-            <a class="links" href="#">Contact</a>
+            <a class="links" href="{{route('Contact')}}">Contact</a>
             <a class="links" href="{{route("Galleries")}}">Galleries</a>
             <a class="links" href="#">My Journey</a>
         </div>
