@@ -1,8 +1,8 @@
 <x-nav>
-    <h1>contact</h1>
-    <div class="d-inline-block w-100 text-center p-5" id="social-Links">
-    <a href="https://www.instagram.com/ryanllew23/"><i class="bi bi-instagram display-3"></i></a>
-    <a href="https://github.com/LlewellynR"><i class="bi bi-github display-3 "></i></a>
-    <a href="https://www.linkedin.com/in/ryanllewellyn700/"><i class="bi bi-linkedin display-3"></i></a>
+    <h1 class="px-3">contact me:</h1>
+    <div class="d-flex w-100 gap-5 justify-content-center" id="social-Links">
+        <x-social-cards social="bi-instagram" name="ryanllewellyn23" heading="https://www.instagram.com/ryanllew23/"></x-social-cards>
+        <x-social-cards social="bi-github" name="LlewellynR" heading="https://github.com/LlewellynR"></x-social-cards>
+        <x-social-cards social="bi-linkedin" name="Llewellyn700" heading="https://www.linkedin.com/in/ryanllewellyn700/"></x-social-cards>
     </div>
 </x-nav>
