@@ -1,5 +1,6 @@
 @import 'tailwindcss';
 @import 'bootstrap/dist/css/bootstrap.min.css';
+
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
 @source '../**/*.blade.php';
@@ -7,81 +8,120 @@
 
 @theme {
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+    'Segoe UI Symbol', 'Noto Color Emoji';
 }
-*{
-    font-family: 'Nunito',sans-serif !important;
+* {
+    font-family: 'Nunito', sans-serif !important;
 }
-#nav{
- background: linear-gradient(to right, #0B1F3A, #0A1A2F)
+
+#nav {
+    background: linear-gradient(to right, #0B1F3A, #0A1A2F)
 }
-#sign-in{
+
+#sign-in {
     color: white;
-    font-family:sans-serif;
+    font-family: sans-serif;
     background-color: red;
 }
-#logo{
+
+#logo {
     color: white;
 }
-.links{
+
+.links {
     text-decoration: none;
     color: #8d8888 !important;
     transition: 200ms;
 }
-.links:hover{
-    color:white !important;
+
+.links:hover {
+    color: white !important;
 }
-.image{
+
+.image {
     transition: 2s;
     animation: fade-in 2s;
 }
+
 @keyframes fade-in {
-    from{
+    from {
         opacity: 0;
         transform: translateX(-200px) translateY(200px);
-    } to{
-    opacity: 1;
-    transform: translateX(0px) translateY(0px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0px) translateY(0px);
 
-          }
+    }
 }
-.flexy{
+
+.flexy {
     border-image-slice: 1 !important;
     margin-top: 100px !important;
     border-image-source: linear-gradient(to right, #0B1F3A, #0A1A2F) !important;
 }
-h5{
+
+h5 {
     font-family: 'Satisfy', serif !important;
 }
-.welcome{
+
+.welcome {
     margin: 30vh !important;
 }
-#intro{
+
+#intro {
     animation: appear 2s;
 }
-#intro-text{
-    animation:appear 5s;
-}
-.welcome>a{
+
+#intro-text {
     animation: appear 5s;
 }
 
-/* Definitely not the most efficient keyframe */
-@keyframes appear {
-    from{
-        opacity: 0;
-    }to{
-    opacity: 1;
-         }
-}
-@keyframes blacktowhite {
-    from{
-        background-color: black;
-    } to{
-    background-color: white;
-          }
+.welcome > a {
+    animation: appear 5s;
 }
 
+
+/* Definitely not the most efficient keyframe */
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+
+@keyframes blacktowhite {
+    from {
+        background-color: black;
+    }
+    to {
+        background-color: white;
+    }
+}
+
+/* tried doing it in TS but wouldn't work*/
+
+.social-links {
+    animation: appear 1s;
+    opacity: 1
+}
+
+.social-links:nth-child(2) {
+    animation-delay: 0.3s;
+    opacity: 1;
+}
+
+.social-links:nth-child(3) {
+    animation-delay: 0.6s;
+    opacity: 1;
+}
+h1{
+    animation: appear 2s;
+}
 
 
 
