@@ -106,18 +106,18 @@ h5 {
 /* tried doing it in TS but wouldn't work*/
 
 .social-links {
-    animation: appear 1s;
-    opacity: 1
+    animation: appear 1s forwards;
+    opacity: 0;
 }
 
 .social-links:nth-child(2) {
     animation-delay: 0.3s;
-    opacity: 1;
+
 }
 
 .social-links:nth-child(3) {
     animation-delay: 0.6s;
-    opacity: 1;
+
 }
 h1{
     animation: appear 2s;
