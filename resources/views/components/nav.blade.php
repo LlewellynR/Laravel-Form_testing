@@ -31,7 +31,7 @@
             <a class="links" href="{{route('welcome')}}">Home</a>
             <a class="links" href="{{route('Contact')}}">Contact</a>
             <a class="links" href="{{route("Galleries")}}">Galleries</a>
-            <a class="links" href="#">My Journey</a>
+            <a class="links" href="{{route('Journey')}}">My Journey</a>
         </div>
         <div class="float-end">
             <a class="links" href="{{route('signIn')}}">Sign In</a>

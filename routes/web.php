@@ -27,6 +27,9 @@ Route::get('Galleries',function (){
 Route::get('Contact',function (){
     return view('Contact');
 })->name("Contact");
+Route::get('Journey',function (){
+    return view('Journey');
+})->name("Journey");
 
 Route::post('signUp', [AuthController::class, 'signUp'])->name('signUp.signUp');
 Route::post('/', [AuthController::class, 'logout'])->name('logout');
