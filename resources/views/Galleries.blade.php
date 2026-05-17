@@ -47,7 +47,6 @@
                         </div>
                     </div>
                     @php
-                        //this is how you can access dir in Laravel,does not work recursively
                         $image=File::files(public_path('images/Hafod estate'))
                     @endphp
                     @foreach($image as $images2)
