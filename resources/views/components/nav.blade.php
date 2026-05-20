@@ -9,7 +9,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
 
-    <!--imports bootstrap?-->
     @vite(['resources/css/app.css', 'resources/js/app.js','resources/js/index.ts'])
     <title>Form testing</title>
 </head>
