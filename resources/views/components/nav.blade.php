@@ -23,15 +23,16 @@
     @if(session()->exists('username'))
         <form method="POST" action="{{route('logout')}}">
             @csrf
-            <input type="submit" class="btn btn-dark" value="logout">
             <a class="btn btn-dark" href="{{route('dashboard')}}">Home</a>
+            <a  class="btn btn-dark" href="{{route('dashboard.profile')}}">Profile</a>
+            <input type="submit" class="btn btn-danger" value="logout">
         </form>
     @else
         <div class="flex gap-4">
             <a class="links" href="{{route('welcome')}}">Home</a>
             <a class="links" href="{{route('Contact')}}">Contact</a>
             <a class="links" href="{{route("Galleries")}}">Galleries</a>
-            <a class="links" href="{{route('Journey')}}">My Journey</a>
+            <a class="links" href="{{route('Leaderboard')}}">Leaderboard</a>
         </div>
         <div class="float-end">
             <a class="links" href="{{route('signIn')}}">Sign In</a>
