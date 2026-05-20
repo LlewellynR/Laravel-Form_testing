@@ -33,25 +33,44 @@ if (progressbar && password) {
     })
 }
 
-
+//IF IT DOESN'T EXIST AND CAUSES AND ERROR ALL CODE BELOW IS REDUNDANT,IF IS SO IMPORTANT
 const icon = document.querySelector(".reveal") as HTMLElement;
-icon.addEventListener("click", (e) => {
-    e.preventDefault();
-    if (password.type == "password") {
-        password.type = "text";
-        icon.classList.replace("bi-eye-slash", "bi-eye");
-    } else {
-        password.type = "password";
-        icon.classList.replace("bi-eye", "bi-eye-slash")
-    }
-})
+if (icon) {
+    icon.addEventListener("click", (e) => {
+        e.preventDefault();
+        if (password.type == "password") {
+            password.type = "text";
+            icon.classList.replace("bi-eye-slash", "bi-eye");
+        } else {
+            password.type = "password";
+            icon.classList.replace("bi-eye", "bi-eye-slash")
+        }
+    })
+}
 
 //fuck you TS for not working,maybe a rendering issue with templates was going to use timeouts to delay them
 const social_links = document.querySelectorAll<HTMLElement>(".social-links");
 document.addEventListener("DOMContentLoaded", () => {
     social_links.forEach(links => {
-        links.style.animation ="appear 4s forwards"
+        links.style.animation = "appear 4s forwards"
 
     })
 })
+
+//im going to fucking throttle TypeScript
+let totalscore:number=0;
+let value:string="";
+let random=Math.floor(Math.random()*100);
+console.log(random);
+document.addEventListener("DOMContentLoaded", () => {
+    const numbers = document.querySelectorAll(".num");
+    numbers.forEach(nums=>{
+        nums.addEventListener("click",()=>{
+            totalscore+=parseInt(nums.innerHTML);
+            console.log(totalscore);
+        })
+    })
+});
+
+
 
