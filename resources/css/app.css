@@ -123,5 +123,16 @@ h1{
     animation: appear 2s;
 }
 
+.griddy >div {
+background: #0A1A2F !important;
+}
+
+.timer{
+    animation: appear 1s forwards;
+}
+.num{
+    cursor: pointer;
+}
+
 
 
