@@ -27,9 +27,9 @@ Route::get('Galleries',function (){
 Route::get('Contact',function (){
     return view('Contact');
 })->name("Contact");
-Route::get('Journey',function (){
-    return view('Journey');
-})->name("Journey");
+Route::get('Leaderboard',function (){
+    return view('Leaderboard');
+})->name("Leaderboard");
 
 Route::post('signUp', [AuthController::class, 'signUp'])->name('signUp.signUp');
 Route::post('/', [AuthController::class, 'logout'])->name('logout');
@@ -53,4 +53,8 @@ Route::middleware(['auth'])->group(function () {
     })->name('dashboard.changeUser');
 
     Route::post('changeUser',[FormDataController::class, 'update',])->name('dashboard.changeUsername');
+
+    Route::get("Grid",function (){
+        return view('Grid');
+    })->name('dashboard.grid');
 });
