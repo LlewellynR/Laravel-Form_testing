@@ -48,7 +48,7 @@ if (icon) {
     })
 }
 
-//fuck you TS for not working,maybe a rendering issue with templates was going to use timeouts to delay them
+/*fuck you TS for not working,maybe a rendering issue with templates was going to use timeouts to delay them
 const social_links = document.querySelectorAll<HTMLElement>(".social-links");
 document.addEventListener("DOMContentLoaded", () => {
     social_links.forEach(links => {
@@ -56,21 +56,35 @@ document.addEventListener("DOMContentLoaded", () => {
 
     })
 })
+*/
+
 
 //im going to fucking throttle TypeScript
 let totalscore:number=0;
-let value:string="";
 let random=Math.floor(Math.random()*100);
 console.log(random);
-document.addEventListener("DOMContentLoaded", () => {
-    const numbers = document.querySelectorAll(".num");
+    const numbers = document.querySelectorAll<HTMLElement>(".num");
     numbers.forEach(nums=>{
         nums.addEventListener("click",()=>{
             totalscore+=parseInt(nums.innerHTML);
-            console.log(totalscore);
+            //bypassing bootstrap by using cssText
+            nums.style.cssText="background-color:grey !important; color:black !important";
         })
     })
-});
+const interval=document.getElementById("interval") as HTMLParagraphElement;
+const timer=document.getElementById("timer") as HTMLDivElement;
+    if(timer){
+        setTimeout(()=>{interval.style.opacity="1";},1000)
+        //got this idea from O'Reilly JavaScript book
+        setTimeout(()=>{interval.innerText="Ready....";},1000);
+        setTimeout(()=>{interval.innerText="Set....";},2000);
+        setTimeout(()=>{interval.innerText="Go!";},3000);
+        setTimeout(()=>{setInterval(countdown, 1000);},3000) //starts timer
+        let time:any = 60;
 
-
+        function countdown() {
+            time--;
+            timer.innerText = time;
+        }
+    }
 
