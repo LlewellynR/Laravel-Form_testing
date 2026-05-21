@@ -1,5 +1,5 @@
 //vite automatically compiles TypeScript ,thank god
-console.log("ts working");
+//console.log("ts working");
 
 
 const progressbar = document.getElementById("progress") as HTMLProgressElement;
@@ -79,12 +79,17 @@ const timer=document.getElementById("timer") as HTMLDivElement;
         setTimeout(()=>{interval.innerText="Ready....";},1000);
         setTimeout(()=>{interval.innerText="Set....";},2000);
         setTimeout(()=>{interval.innerText="Go!";},3000);
-        setTimeout(()=>{setInterval(countdown, 1000);},3000) //starts timer
-        let time:any = 60;
+        setTimeout(()=>{i=setInterval(countdown, 1000);},3000) //starts timer
+        let time:any = 3;
+        let i:number; //this is janky,needs changing.
 
         function countdown() {
             time--;
             timer.innerText = time;
+            if(time==0){
+                clearInterval(i);
+            }
         }
+
     }
 
