@@ -60,36 +60,90 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 //im going to fucking throttle TypeScript
-let totalscore:number=0;
-let random=Math.floor(Math.random()*100);
+let totalscore: number = 0;
+let random = Math.floor(Math.random() * 100 + 3);
 console.log(random);
-    const numbers = document.querySelectorAll<HTMLElement>(".num");
-    numbers.forEach(nums=>{
-        nums.addEventListener("click",()=>{
-            totalscore+=parseInt(nums.innerHTML);
-            //bypassing bootstrap by using cssText
-            nums.style.cssText="background-color:grey !important; color:black !important";
-        })
+const numbers = document.querySelectorAll<HTMLElement>(".num");
+numbers.forEach(nums => {
+    nums.addEventListener("click", () => {
+        totalscore += parseInt(nums.innerHTML);
+        //bypassing bootstrap by using cssText
+        //nums.style.cssText = "background-color:grey !important; color:black !important";
     })
-const interval=document.getElementById("interval") as HTMLParagraphElement;
-const timer=document.getElementById("timer") as HTMLDivElement;
-    if(timer){
-        setTimeout(()=>{interval.style.opacity="1";},1000)
-        //got this idea from O'Reilly JavaScript book
-        setTimeout(()=>{interval.innerText="Ready....";},1000);
-        setTimeout(()=>{interval.innerText="Set....";},2000);
-        setTimeout(()=>{interval.innerText="Go!";},3000);
-        setTimeout(()=>{i=setInterval(countdown, 1000);},3000) //starts timer
-        let time:any = 3;
-        let i:number; //this is janky,needs changing.
+})
+const interval = document.getElementById("interval") as HTMLParagraphElement;
+const timer = document.getElementById("timer") as HTMLDivElement;
+if (timer) {
+    let gridlock: boolean = false;
+    setTimeout(() => {
+        interval.style.opacity = "1";
+    }, 1000)
+    //got this idea from O'Reilly JavaScript book
+    setTimeout(() => {
+        interval.innerText = "Ready....";
+    }, 1000);
+    setTimeout(() => {
+        interval.innerText = "Set....";
+    }, 2000);
+    setTimeout(() => {
+        interval.innerText = "Go!";
+    }, 3000);
+    setTimeout(() => {
+        i = setInterval(countdown, 1000);
+    }, 3000) //starts timer
+    let time: any = 60;
+    let i: number; //this is janky,needs changing.
 
-        function countdown() {
-            time--;
-            timer.innerText = time;
-            if(time==0){
-                clearInterval(i);
-            }
+
+    //now eval is supperrr dangerous and this is awful code but it will be changed
+    const grids = document.querySelectorAll(".container");
+    const numarr: any[] = [];
+    let totalscore: number = 0;
+
+    function countdown() {
+        time--;
+        timer.innerText = time;
+        if (time == 0) {
+            clearInterval(i);
         }
+        if (time !== 60) {
+            grids.forEach((grid) => {
+                const nums = grid.querySelectorAll(".num");
+                nums.forEach((num) => {
+                    num.addEventListener("click", () => {
+                        if (gridlock) {
+                            console.log("you are locked");
+                            return;
+                        }
+                        if (num.classList.contains("active")) {
+                            num.classList.remove("active");
+                            gridlock = false;
+                        } else {
+                            num.classList.add("active");
+                            gridlock = true;
+                        }
+                        const activeItems = document.querySelectorAll<HTMLElement>(".num.active");
+                        if (activeItems.length === 1) {
+                            console.log(grid.id + " has one active");
+                        } else if (activeItems.length === 0) {
+                            console.log(grid.id + " has none selected");
+                        }
 
+                        numarr.push(num.textContent);
+                        console.log(numarr.join(""));
+                        document.getElementById("score")?.addEventListener("click", () => {
+                            const finalsum: number = eval(numarr.join(""));
+                            if (finalsum == random) {
+                                console.log("winner");
+                                totalscore++;
+                            }
+                        })
+                    });
+                });
+            });
+        }
     }
+}
+
+
 
