@@ -136,6 +136,15 @@ background: #0A1A2F !important;
 #interval{
    opacity: 0;
 }
-
+.active{
+    animation:spinneroony 1s forwards;
+}
+@keyframes spinneroony {
+    from{
+        scale: 1;
+    }to{
+    scale: 1.25;
+         }
+}
 
 
