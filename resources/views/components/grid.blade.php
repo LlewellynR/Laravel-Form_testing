@@ -1,4 +1,4 @@
-<div class="container text-center">
+<div class="container text-center" id="{{$id}}">
     <div class="row griddy text-white">
         <div class="col-3 border p-5 num">1</div>
         <div class="col-3 border p-5 num">2</div>
