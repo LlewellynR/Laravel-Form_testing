@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 //im going to fucking throttle TypeScript
 let totalscore: number = 0;
-let random = Math.floor(Math.random() * 100 + 3);
+let random = Math.floor(Math.random() * 100 + 10); //add 10 to stop a num too small
 console.log(random);
 const numbers = document.querySelectorAll<HTMLElement>(".num");
 numbers.forEach(nums => {
@@ -74,7 +74,6 @@ numbers.forEach(nums => {
 const interval = document.getElementById("interval") as HTMLParagraphElement;
 const timer = document.getElementById("timer") as HTMLDivElement;
 if (timer) {
-    let gridlock: boolean = false;
     setTimeout(() => {
         interval.style.opacity = "1";
     }, 1000)
@@ -96,9 +95,11 @@ if (timer) {
 
 
     //now eval is supperrr dangerous and this is awful code but it will be changed
-    const grids = document.querySelectorAll(".container");
+    const grids = document.querySelectorAll<HTMLElement>(".container");
     const numarr: any[] = [];
     let totalscore: number = 0;
+    let lockedgrid: Element | null = null;
+    let startflag: boolean = false
 
     function countdown() {
         time--;
@@ -106,44 +107,46 @@ if (timer) {
         if (time == 0) {
             clearInterval(i);
         }
-        if (time !== 60) {
-            grids.forEach((grid) => {
-                const nums = grid.querySelectorAll(".num");
-                nums.forEach((num) => {
-                    num.addEventListener("click", () => {
-                        if (gridlock) {
-                            console.log("you are locked");
-                            return;
-                        }
-                        if (num.classList.contains("active")) {
-                            num.classList.remove("active");
-                            gridlock = false;
-                        } else {
-                            num.classList.add("active");
-                            gridlock = true;
-                        }
-                        const activeItems = document.querySelectorAll<HTMLElement>(".num.active");
-                        if (activeItems.length === 1) {
-                            console.log(grid.id + " has one active");
-                        } else if (activeItems.length === 0) {
-                            console.log(grid.id + " has none selected");
-                        }
+        if (!startflag) {
+            startflag = true;
+            gridlogic(grid1);
+            gridlogic(grid2);
+            gridlogic(grid3);
 
-                        numarr.push(num.textContent);
-                        console.log(numarr.join(""));
-                        document.getElementById("score")?.addEventListener("click", () => {
-                            const finalsum: number = eval(numarr.join(""));
-                            if (finalsum == random) {
-                                console.log("winner");
-                                totalscore++;
-                            }
-                        })
-                    });
-                });
-            });
         }
     }
-}
+
+    const grid1 = document.getElementById("grid1") as HTMLElement;
+    const grid2 = document.getElementById("grid2") as HTMLElement;
+    const grid3 = document.getElementById("grid3") as HTMLElement;
 
 
+    function gridlogic(grid: HTMLElement) {
+        const nums = grid.querySelectorAll(".num");
+        nums.forEach((num) => {
+            num.addEventListener("click", () => {
+                if (num.classList.contains("active")) {
+                    num.classList.remove("active");
+                    return;
+                }
+                //unselect all active
+                grid.querySelectorAll(".num.active").forEach(g => {
+                    g.classList.remove("active")
+                })
+                //make new active
+                num.classList.add("active");
+                lockedgrid = grid;
 
+                numarr.push(num.textContent);
+                console.log(numarr.join(""));
+                document.getElementById("score")?.addEventListener("click", () => {
+                    const finalsum: number = eval(numarr.join(""));
+                    if (finalsum == random) {
+                        console.log("winner");
+                        totalscore++;
+                    }
+                })
+            });
+        });
+    }
+    }
