@@ -16,12 +16,14 @@
         <div class="col-3 border p-5 num">8</div>
         <div class="col-3 border p-5 num">9</div>
     </div>
-    <div class="mt-2 align-items-center w-75 gap-3">
-        <div class="btn btn-primary num">+</div>
-        <div class="btn btn-primary num">*</div>
-        <div class="btn btn-primary num">/</div>
-        <div class="btn btn-primary num">-</div>
-    </div>
+    @if($id!=="grid3")
+        <div class="mt-2 align-items-center w-75 gap-3 operations">
+            <div class="btn btn-primary op">+</div>
+            <div class="btn btn-primary op">*</div>
+            <div class="btn btn-primary op">/</div>
+            <div class="btn btn-primary op">-</div>
+        </div>
+    @endif
 </div>
 
 

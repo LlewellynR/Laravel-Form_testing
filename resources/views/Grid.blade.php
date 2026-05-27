@@ -3,7 +3,7 @@
     <p id="interval" class="text-center">.</p>
 
     <div class="d-flex w-100 m-5">
-            <x-grid id="grid1">
+            <x-grid  id="grid1">
 
             </x-grid>
 
