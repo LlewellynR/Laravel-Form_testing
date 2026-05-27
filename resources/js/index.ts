@@ -135,18 +135,28 @@ if (timer) {
                 })
                 //make new active
                 num.classList.add("active");
-                lockedgrid = grid;
 
-                numarr.push(num.textContent);
-                console.log(numarr.join(""));
-                document.getElementById("score")?.addEventListener("click", () => {
-                    const finalsum: number = eval(numarr.join(""));
-                    if (finalsum == random) {
-                        console.log("winner");
-                        totalscore++;
-                    }
-                })
             });
         });
     }
-    }
+}
+document.getElementById("score")?.addEventListener("click", () => {
+    score();
+})
+
+function score() {
+    const grids = document.querySelectorAll(".active");
+    let answer: any[] = [];
+    let val: number | string;
+    grids.forEach(grid => {
+        val = String(grid.textContent);
+        answer.push(val);
+    });
+    console.log(answer);
+    answer = [];
+
+    // if (finalsum == random) {
+    //     console.log("winner");
+    //     totalscore++;
+    // }
+}
