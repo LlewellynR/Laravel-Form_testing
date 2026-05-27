@@ -130,7 +130,7 @@
                         return;
                     }
                     //unselect all active
-                    grid.querySelectorAll(".op.active").forEach(g => {
+                    grid.querySelectorAll(".num.active").forEach(g => {
                         g.classList.remove("active")
                     })
                     //make new active
@@ -154,11 +154,10 @@
             });
 
             document.getElementById("score")?.addEventListener("click", () => {
-                score();
+                score(random);
             })
 
-            function score() {
-
+            function score(value:number) {
                 const grids = document.querySelectorAll(".active");
                 let answer: any[] = [];
                 let val: number | string;
@@ -166,13 +165,14 @@
                     val = String(grid.textContent);
                     answer.push(val);
                 });
+                const finalscore=eval(answer.join(""));
                 console.log(answer);
                 answer = [];
-
-                // if (finalsum == random) {
-                //     console.log("winner");
-                //     totalscore++;
-                // }
+                if (finalscore==value){
+                    console.log("winner");
+                }else{
+                    console.log("fail");
+                }
             }
         }
     }
