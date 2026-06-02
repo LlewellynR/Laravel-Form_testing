@@ -1,7 +1,7 @@
 <x-nav>
     <div class="text-center timer m-5" id="timer">60</div>
     <p id="interval" class="text-center">.</p>
-
+    <p id="random"></p>
     <div class="d-flex w-100 m-5">
             <x-grid  id="grid1">
 
