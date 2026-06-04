@@ -117,7 +117,7 @@ if (timer) {
     const grid1 = document.getElementById("grid1") as HTMLElement;
     const grid2 = document.getElementById("grid2") as HTMLElement;
     const grid3 = document.getElementById("grid3") as HTMLElement;
-    let random = Math.floor(Math.random() * 100 + 10); //add 10 to stop a number too small being generated
+    let random:number | string = Math.floor(Math.random() * 100 + 5); //add 10 to stop a number too small being generated
     console.log(random);
 
     function gridlogic(grid: HTMLElement) {
@@ -159,7 +159,7 @@ if (timer) {
             score(random);
         })
 
-        function score(value: number) {
+        function score(value: number | string ) {
             const grids = document.querySelectorAll(".active");
             let answer: any[] = [];
             let val: number | string;
@@ -172,7 +172,8 @@ if (timer) {
             console.log(answer);
             answer = [];
             if (finalscore == value) {
-                rand.innerText=String(Math.floor(Math.random() * 100 + 10));
+                random=String(Math.floor(Math.random() * 100 + 10));
+                rand.innerText=random;
                 console.log("winner");
             } else {
                 console.log("fail");
