@@ -87,7 +87,7 @@ if (timer) {
     setTimeout(() => {
         i = setInterval(countdown, 1000);
     }, 3000) //starts timer
-    let time: any = 3;
+    let time: any = 60;
     let i: number; //this is janky,needs changing.
 
 
@@ -101,7 +101,9 @@ if (timer) {
            unselectAll();
             clearInterval(i)
             startflag = false
-            document.querySelector("#game-over-screen")?.classList.remove("d-none")
+            document.querySelector("#game-over-screen")?.classList.remove("d-none");
+            const sc=document.getElementById("score") as HTMLParagraphElement;
+            sc.innerText=String(totalscore);
         }
         if (!startflag) {
             startflag = true;
@@ -115,7 +117,7 @@ if (timer) {
     const grid1 = document.getElementById("grid1") as HTMLElement;
     const grid2 = document.getElementById("grid2") as HTMLElement;
     const grid3 = document.getElementById("grid3") as HTMLElement;
-    let random:number | string = Math.floor(Math.random() * 100 + 5); //add 10 to stop a number too small being generated
+    let random:number | string = Math.floor(Math.random() * 80 + 5); //add 10 to stop a number too small being generated
     console.log(random);
 
     function gridlogic(grid: HTMLElement) {
@@ -153,7 +155,7 @@ if (timer) {
             });
         });
 
-        document.getElementById("score")?.addEventListener("click", () => {
+        document.getElementById("submit")?.addEventListener("click", () => {
             score(random);
         })
 
