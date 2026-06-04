@@ -20,7 +20,7 @@
             </x-grid>
     </div>
     <div class="text-center">
-        <button class="bi bi-grid-3x3 btn btn-outline-primary w-25" id="score">Submit</button>
+        <button class="bi bi-grid-3x3 btn btn-outline-primary w-25" id="submit">Submit</button>
         <a class="bi bi-controller btn btn-primary w-25"> View Saved games</a>
     </div>
 
