@@ -146,5 +146,13 @@ background: #0A1A2F !important;
     scale: 1.25;
          }
 }
-
+#random{
+    background-color: #0A1A2F !important;
+    width: 20% !important;
+    border-color: white !important;
+    text-align: center !important;
+    margin: auto !important;
+    color: white;
+    padding: 20px;
+}
 
