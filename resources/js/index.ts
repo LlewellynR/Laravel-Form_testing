@@ -87,7 +87,7 @@ if (timer) {
     setTimeout(() => {
         i = setInterval(countdown, 1000);
     }, 3000) //starts timer
-    let time: any = 60;
+    let time: any = 3;
     let i: number; //this is janky,needs changing.
 
 
@@ -98,12 +98,10 @@ if (timer) {
         time--;
         timer.innerText = time;
         if (time == 0) {
-            const grids=document.querySelectorAll(".active");
-            grids.forEach(g=>{
-                g.classList.remove("active");
-            })
+           unselectAll();
             clearInterval(i)
             startflag = false
+            document.querySelector("#game-over-screen")?.classList.remove("d-none")
         }
         if (!startflag) {
             startflag = true;
@@ -159,7 +157,7 @@ if (timer) {
             score(random);
         })
 
-        function score(value: number | string ) {
+        function score(value: number | string) {
             const grids = document.querySelectorAll(".active");
             let answer: any[] = [];
             let val: number | string;
@@ -172,12 +170,19 @@ if (timer) {
             console.log(answer);
             answer = [];
             if (finalscore == value) {
-                random=String(Math.floor(Math.random() * 100 + 10));
+                random=String(Math.floor(Math.random() * 100 + 5));
                 rand.innerText=random;
-                console.log("winner");
+                unselectAll();
+                totalscore++;
             } else {
                 console.log("fail");
             }
         }
     }
+}
+function unselectAll(){
+    const grids=document.querySelectorAll(".active");
+    grids.forEach(g=>{
+        g.classList.remove("active");
+    })
 }
