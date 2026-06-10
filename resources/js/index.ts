@@ -102,6 +102,7 @@ if (timer) {
             clearInterval(i)
             startflag = false
             document.querySelector("#game-over-screen")?.classList.remove("d-none");
+            document.querySelector("#game-over-screen")?.classList.add("animation")
             const sc=document.getElementById("score") as HTMLParagraphElement;
             sc.innerText=String(totalscore);
         }
@@ -117,9 +118,11 @@ if (timer) {
     const grid1 = document.getElementById("grid1") as HTMLElement;
     const grid2 = document.getElementById("grid2") as HTMLElement;
     const grid3 = document.getElementById("grid3") as HTMLElement;
-    let random:number | string = Math.floor(Math.random() * 80 + 5); //add 10 to stop a number too small being generated
-    console.log(random);
-
+    let random:number | string = Math.floor(Math.random() * 100 + 5); //add 10 to stop a number too small being generated
+    //setting an upper bound to stop numbers to big being generated
+    if (random>90){
+        random-=20;
+    }
     function gridlogic(grid: HTMLElement) {
         const rand=document.getElementById("random") as HTMLParagraphElement;
         rand.innerText=String(random);
@@ -188,3 +191,7 @@ function unselectAll(){
         g.classList.remove("active");
     })
 }
+
+document.getElementById("playAgain")?.addEventListener("click",()=>{
+    window.location.reload();
+})
