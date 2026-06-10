@@ -119,34 +119,41 @@ h5 {
     animation-delay: 1s;
 
 }
-h1{
+
+h1 {
     animation: appear 2s;
 }
 
-.griddy >div {
-background: #0A1A2F !important;
+.griddy > div {
+    background: #0A1A2F !important;
 }
 
-.timer{
+.timer {
     animation: appear 1s forwards;
 }
-.num{
+
+.num {
     cursor: pointer;
 }
-#interval{
-   opacity: 0;
+
+#interval {
+    opacity: 0;
 }
-.active{
-    animation:spinneroony 1s forwards;
+
+.active {
+    animation: spinneroony 1s forwards;
 }
+
 @keyframes spinneroony {
-    from{
+    from {
         scale: 1;
-    }to{
-    scale: 1.25;
-         }
+    }
+    to {
+        scale: 1.25;
+    }
 }
-#random{
+
+#random {
     background-color: #0A1A2F !important;
     width: 20% !important;
     border-color: white !important;
@@ -156,3 +163,23 @@ background: #0A1A2F !important;
     padding: 20px;
 }
 
+#game-over-screen {
+    position:absolute !important;
+    top:55% !important;
+    left:39% !important;
+    margin: auto !important;
+    background-color: coral; /*need a new color */
+    color:white;
+
+}
+
+.animation{
+    animation: fade-up 2s forwards;
+}
+@keyframes fade-up {
+    from{
+        transform: translateY(500px);
+    } to{
+    transform: translateY(0);
+          }
+}
