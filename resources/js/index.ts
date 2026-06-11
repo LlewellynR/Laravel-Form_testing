@@ -102,9 +102,11 @@ if (timer) {
             clearInterval(i)
             startflag = false
             document.querySelector("#game-over-screen")?.classList.remove("d-none");
-            document.querySelector("#game-over-screen")?.classList.add("animation")
+            document.querySelector("#game-over-screen")?.classList.add("animation");
             const sc=document.getElementById("score") as HTMLParagraphElement;
+            const sc2=document.getElementById("hidden_score") as HTMLInputElement;
             sc.innerText=String(totalscore);
+            sc2.value=String(totalscore);
         }
         if (!startflag) {
             startflag = true;
