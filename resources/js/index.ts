@@ -103,8 +103,12 @@ if (timer) {
             startflag = false
             document.querySelector("#game-over-screen")?.classList.remove("d-none");
             document.querySelector("#game-over-screen")?.classList.add("animation");
-            const sc=document.getElementById("score") as HTMLParagraphElement;
+            const sc=document.getElementById("score") as HTMLSpanElement;
             const sc2=document.getElementById("hidden_score") as HTMLInputElement;
+            if(totalscore==0){
+                sc.innerText="0"
+                sc2.innerText="0";
+            }
             sc.innerText=String(totalscore);
             sc2.value=String(totalscore);
         }
