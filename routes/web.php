@@ -57,4 +57,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get("Grid",function (){
         return view('Grid');
     })->name('dashboard.grid');
+
+    Route::get("Save-game",function (){
+       return view('components.save-game');
+    })->name('save-game');
 });
