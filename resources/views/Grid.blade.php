@@ -2,6 +2,13 @@
     <x-game-over>
 
     </x-game-over>
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            @foreach ($errors->all() as $error)
+                <p>{{ $error }}</p>
+            @endforeach
+        </div>
+    @endif
     <div class="text-center timer m-5" id="timer">60</div>
     <p id="interval" class="text-center">.</p>
     <p id="random">...</p>
