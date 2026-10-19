@@ -107,7 +107,7 @@ if (timer) {
             const sc2=document.getElementById("hidden_score") as HTMLInputElement;
             if(totalscore==0){
                 sc.innerText="0"
-                sc2.innerText="0";
+                sc2.value=String(totalscore);
             }
             sc.innerText=String(totalscore);
             sc2.value=String(totalscore);
@@ -124,10 +124,12 @@ if (timer) {
     const grid1 = document.getElementById("grid1") as HTMLElement;
     const grid2 = document.getElementById("grid2") as HTMLElement;
     const grid3 = document.getElementById("grid3") as HTMLElement;
-    let random:number | string = Math.floor(Math.random() * 100 + 5); //add 10 to stop a number too small being generated
+    let random:number | string = Math.floor(Math.random() * 85); //add 10 to stop a number too small being generated
     //setting an upper bound to stop numbers to big being generated
     if (random>90){
         random-=20;
+    } else if(random<=3){
+        random+=20
     }
     function gridlogic(grid: HTMLElement) {
         const rand=document.getElementById("random") as HTMLParagraphElement;
