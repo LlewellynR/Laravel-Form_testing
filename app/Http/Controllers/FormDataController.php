@@ -28,15 +28,16 @@ class FormDataController extends Controller
     function show($id)
     {
         $formData = FormData::findorfail($id);
-        return view('dashboard.profile', ['formData' => $formData]);
+        return view('profile', ['formData' => $formData]);
     }
 
     //Update
     function update(Request $request)
     {
+        //validate the data,ensure it meets format
         $validate = $request->validate([
             'username' => 'required | min:3 | max:20 ',
-            'password' => 'required | min:3 | max:20 | confirmed',
+            'password_hash' => 'required | min:3 | max:20 | confirmed',
         ]);
         if (auth()->user()->username == $validate['username']) {
             throw ValidationException::withMessages([
@@ -51,4 +52,5 @@ class FormDataController extends Controller
             return redirect(route('dashboard.changeUser'))->with('success', 'Your profile has been updated');
         }
     }
+
 }
