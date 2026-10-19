@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\HTTP\Controllers\FormDataController;
 use App\HTTP\Controllers\AuthController;
+use App\Http\Controllers\LeaderboardController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -58,7 +59,5 @@ Route::middleware(['auth'])->group(function () {
         return view('Grid');
     })->name('dashboard.grid');
 
-    Route::get("Save-game",function (){
-       return view('components.save-game');
-    })->name('save-game');
+    Route::post("save-game",[LeaderboardController::class,'save'])->name('save-game');;
 });
