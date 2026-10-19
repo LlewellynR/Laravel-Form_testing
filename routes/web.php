@@ -21,16 +21,14 @@ Route::get('signUp', function () {
     return view('signUp');
 })->name('signUp');
 
-Route::get('Galleries',function (){
+Route::get('Galleries', function () {
     return view('Galleries');
 })->name("Galleries");
 
-Route::get('Contact',function (){
+Route::get('Contact', function () {
     return view('Contact');
 })->name("Contact");
-Route::get('Leaderboard',function (){
-    return view('Leaderboard');
-})->name("Leaderboard");
+Route::get('Leaderboard', [LeaderboardController::class, 'index'])->name("Leaderboard");
 
 Route::post('signUp', [AuthController::class, 'signUp'])->name('signUp.signUp');
 Route::post('/', [AuthController::class, 'logout'])->name('logout');
@@ -49,15 +47,15 @@ Route::middleware(['auth'])->group(function () {
     })->name('dashboard.profile');
 
 
-    Route::get('changeUser',function(){
-       return view('changeUser');
+    Route::get('changeUser', function () {
+        return view('changeUser');
     })->name('dashboard.changeUser');
 
-    Route::post('changeUser',[FormDataController::class, 'update',])->name('dashboard.changeUsername');
+    Route::post('changeUser', [FormDataController::class, 'update',])->name('dashboard.changeUsername');
 
-    Route::get("Grid",function (){
+    Route::get("Grid", function () {
         return view('Grid');
     })->name('dashboard.grid');
 
-    Route::post("save-game",[LeaderboardController::class,'save'])->name('save-game');;
+    Route::post("save-game", [LeaderboardController::class, 'save'])->name('dashboard.save-game');
 });
