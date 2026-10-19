@@ -10,11 +10,16 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class FormData extends Authenticatable
 {
     protected $fillable = [
-        'username', 'password'
+        'username', 'password_hash'
     ];
     use HasFactory;
-
+    //this specifies the password name because by default it is password
+    public function getAuthPasswordName(): string
+    {
+        return 'password_hash';
+    }
 }
+
 
 
 
