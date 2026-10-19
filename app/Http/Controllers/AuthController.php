@@ -51,8 +51,10 @@ class AuthController extends Controller
         }
 
         //THIS HASHES THE PASSWORD
-        $validate['password'] = Hash::make($validate['password']);
+        $validate['password_hash'] = Hash::make($validate['password']);
 
+        //for future reference,name the db password just password
+        unset($validate['password']);
 
         FormData::create($validate);
 
